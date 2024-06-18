@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodge the Rockets</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        #gameArea {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            border: 2px solid #000;
+            background-color: #fff;
+            background-image: url('images/background.jpg'); /* Background image */
+            background-size: cover;
+        }
+        #character {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url('images/character.png'); /* Character image */
+            background-size: cover;
+            left: 50px;
+        }
+        .rocket {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            background-image: url('images/rocket.png'); /* Red rocket image */
+            background-size: cover;
+            right: 0;
+        }
+        .bigRocket {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            background-image: url('images/bigRocket.png'); /* Green rocket image */
+            background-size: cover;
+            right: 0;
+        }
+        .yellowRocket {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background-image: url('images/yellowRocket.png'); /* Yellow rocket image */
+            background-size: cover;
+        }
+        #startScreen, #endScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: yellow; /* Text color */
+            font-size: 24px;
+            flex-direction: column;
+        }
+        #startScreen button, #endScreen button {
+            padding: 10px 20px;
+            background-color: green;
+            border: none;
+            color: yellow; /* Text color */
+            font-size: 20px;
+            cursor: pointer;
+        }
+        #shotsLeft, #survivalTime, #points {
+            position: absolute;
+            font-size: 20px;
+            color: yellow; /* Text color */
+        }
+        #shotsLeft {
+            top: 10px;
+            left: 10px;
+        }
+        #survivalTime {
+            top: 10px;
+            right: 10px;
+        }
+        #points {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="gameArea">
+        <div id="character"></div>
+        <div id="startScreen">
+            <div>Click to Start</div>
+            <button id="startButton">Start Game</button>
+        </div>
+        <div id="endScreen" style="display: none;">
+            <div id="hitMessage">You got hit!</div>
+            <div id="finalTime"></div>
+            <div id="finalPoints"></div>
+            <button id="playAgainButton">Play Again</button>
+        </div>
+        <div id="shotsLeft">Shots Left: 5</div>
+        <div id="survivalTime">Time: 0s</div>
+        <div id="points">Points: 0</div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
